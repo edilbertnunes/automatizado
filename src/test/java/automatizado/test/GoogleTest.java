@@ -7,12 +7,13 @@ import org.junit.Test;
 import automatizado.page.GooglePO;
 
 
-public class GoogleTest extends BaseTeste{
+public class GoogleTest extends BaseTest{
 
     private static GooglePO googlePage;
 
     @BeforeClass
     public static void prepararTestes() {
+        driver.get("https://www.google.com.br/");
         googlePage = new GooglePO(driver);
     }
 
