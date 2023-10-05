@@ -15,11 +15,30 @@ public class LoginTest extends BaseTest {
         loginPage = new LoginPO(driver);
     }
 
-
     @Test
     public void TC001_naoDeveLogarNoSistemaComEmailESenhaVazios() {
-        loginPage.digitarEmail("");
-        loginPage.digitarSenha("");
+        loginPage.executarAcaoDeLogar("","");
+        
+        loginPage.buttonEntrar.click();
+        String mensagem = loginPage.obterMensagem();
+        
+        assertEquals(mensagem,"Informe usuário e senha, os campos não podem ser brancos.");
+    }
+
+    @Test
+    public void TC002_naoDeveLogarNoSistemaComEmailIncorretoESenhaVazio() {
+        loginPage.executarAcaoDeLogar("teste","");
+        
+        loginPage.buttonEntrar.click();
+        String mensagem = loginPage.obterMensagem();
+        
+        assertEquals(mensagem,"Informe usuário e senha, os campos não podem ser brancos.");
+    }
+
+    @Test
+    public void TC003_naoDeveLogarNoSistemaComEmailVazioESenhaIncorreta() {
+        loginPage.executarAcaoDeLogar("","teste");
+
         loginPage.buttonEntrar.click();
         String mensagem = loginPage.obterMensagem();
         

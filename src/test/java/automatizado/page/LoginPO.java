@@ -11,7 +11,6 @@ public class LoginPO extends BasePO {
         super(driver);
     }
 
-
     @FindBy(id = "email")
     public WebElement inputEmail;
 
@@ -24,16 +23,20 @@ public class LoginPO extends BasePO {
     @FindBy(css = "form.form-login>div.alert>span")
     public WebElement spanMensagem;
 
-    public void digitarEmail(String texto){
-        inputEmail.sendKeys(texto + Keys.TAB);
-    }
-
-    public void digitarSenha(String texto) {
-        inputSenha.sendKeys(texto + Keys.ENTER);
+    public void escrever(WebElement input, String texto) {
+        input.clear();
+        input.sendKeys(texto + Keys.TAB);
     }
 
     public String obterMensagem() {
         return this.spanMensagem.getText();
+    }
+
+    public void executarAcaoDeLogar(String email, String senha) {
+        escrever(inputEmail,email);
+        escrever(inputSenha, senha);
+        
+        buttonEntrar.click();
     }
     
 }
