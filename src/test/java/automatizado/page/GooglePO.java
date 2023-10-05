@@ -14,7 +14,7 @@ public class GooglePO extends BasePO {
     public WebElement divResultadoPesquisa;
 
     /**
-     * Construtor para criação da pagina do Goole
+     * Construtor para criação da pagina do Google
      * @param driver
      */
     public GooglePO(WebDriver driver) {

@@ -1,3 +1,4 @@
 # Ignore todos os arquivos de texto
 *.class
 *.exe
+*.txt

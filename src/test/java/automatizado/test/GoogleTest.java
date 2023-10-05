@@ -3,16 +3,20 @@ package automatizado.test;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
 import automatizado.page.GooglePO;
 
-
-public class GoogleTest extends BaseTeste{
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class GoogleTest extends BaseTest{
 
     private static GooglePO googlePage;
 
     @BeforeClass
     public static void prepararTestes() {
+        driver.get("https://www.google.com.br/");
         googlePage = new GooglePO(driver);
     }
 
