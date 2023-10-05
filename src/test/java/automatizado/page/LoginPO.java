@@ -14,7 +14,7 @@ public class LoginPO extends BasePO {
     @FindBy(id = "email")
     public WebElement inputEmail;
 
-    @FindBy(id = "email")
+    @FindBy(id = "senha")
     public WebElement inputSenha;
 
     @FindBy(id = "btn-entrar")
@@ -37,6 +37,11 @@ public class LoginPO extends BasePO {
         escrever(inputSenha, senha);
         
         buttonEntrar.click();
+    }
+
+    public String obterTituloPagina() {
+        return driver.getTitle();
+
     }
     
 }
