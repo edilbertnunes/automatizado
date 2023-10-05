@@ -2,25 +2,39 @@ package automatizado.test;
 
 import static org.junit.Assert.assertTrue;
 
-
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import automatizado.page.GooglePO;
 
 
 public class GoogleTest extends BaseTeste{
 
+    private static GooglePO googlePage;
+
+    @BeforeClass
+    public static void prepararTestes() {
+        googlePage = new GooglePO(driver);
+    }
+
     @Test
-    public void devePesquisarNoGoogle() {
+    public void TC001_deveSerPossivelPesquisarNoGoogleOTextoBatataFrita() {
 
-        WebElement textoParaEnviar = driver.findElement(By.name("q"));
-        textoParaEnviar.sendKeys("Batata Frita" +Keys.ENTER);
+        //googlePage.inputPesquisa.sendKeys("Batata Frita" +Keys.ENTER);
+        googlePage.pesquisar("Batata Frita");
 
-        String resultado = driver.findElement(By.id("result-stats")).getText();
+        String resultado = googlePage.obterResultadoDaPesquisa();
         
         assertTrue(resultado, resultado.contains("Aproximadamente"));
+    }
 
+    @Test
+    public void TC002_deveSerPossivelPesquisarNoGoogleOTextoNutella() {
+
+        googlePage.pesquisar("Nutella");
+
+        String resultado = googlePage.obterResultadoDaPesquisa();
+        
+        assertTrue(resultado, resultado.contains("resultados"));
     }
 
 }
