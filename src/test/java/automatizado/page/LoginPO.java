@@ -6,10 +6,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPO extends BasePO {
 
+    //#endregion Região construtor
     public LoginPO(WebDriver driver) {
         super(driver);
     }
 
+    //#endregion Região construtor
+
+    //#region Região dos WebElements
     @FindBy(id = "email")
     public WebElement inputEmail;
 
@@ -22,6 +26,14 @@ public class LoginPO extends BasePO {
     @FindBy(css = "form.form-login>div.alert>span")
     public WebElement spanMensagem;
 
+    //#endregion Região dos WebElements
+
+
+    //#region Região métodos
+    /**
+     * Método que obtem a mensagem disparada na tela
+     * @return Texto da mensagem
+     */
     public String obterMensagem() {
         return this.spanMensagem.getText();
     }
@@ -32,5 +44,7 @@ public class LoginPO extends BasePO {
         
         buttonEntrar.click();
     }
+
+    //#endregion Região métodos
     
 }

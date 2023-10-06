@@ -8,12 +8,17 @@ import org.openqa.selenium.support.FindBy;
 
 import automatizado.builder.ProdutoBuilder;
 
+
 public class ControleDeProdutoPO extends BasePO {
 
+    //#region Região do construtor
     public ControleDeProdutoPO(WebDriver driver) {
         super(driver);
     }
 
+    //#endregion Região do construtor
+
+    //#region Região WebElement
     @FindBy(id = "btn-adicionar")
     public WebElement buttonAdicionar;
 
@@ -47,18 +52,14 @@ public class ControleDeProdutoPO extends BasePO {
     @FindBy(id = "mensagem")
     public WebElement spamMensagem;
 
+    //#endregion Região WebElement
+
+    //#region Região dos métodos
     public void escrever(WebElement input, String texto) {
-        input.clear();
         input.sendKeys(texto + Keys.TAB);
     }
 
-    public void cadastrarProduto(
-        String codigo, 
-        String nome, 
-        Integer quantidade, 
-        Double valor, 
-        String data) {
-
+    public void cadastrarProduto(String codigo, String nome, Integer quantidade, Double valor, String data) {
             escrever(inputCodigo, codigo);
             escrever(inputNome, nome);
             escrever(inputQuantidade, quantidade.toString());
@@ -66,7 +67,6 @@ public class ControleDeProdutoPO extends BasePO {
             escrever(inputData, data);
 
             buttonSalvar.click();
-
     }
 
     public void cadastrarProduto(ProdutoBuilder produtoBuilder) {
@@ -74,4 +74,5 @@ public class ControleDeProdutoPO extends BasePO {
         buttonSalvar.click();
     }
 
+    //#endregion Região dos métodos
 }
