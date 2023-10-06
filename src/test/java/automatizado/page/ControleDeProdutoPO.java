@@ -1,6 +1,7 @@
 package automatizado.page;
 
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,4 +35,36 @@ public class ControleDeProdutoPO extends BasePO {
 
     @FindBy(id = "data")
     public WebElement inputData;
+
+    @FindBy(id = "btn-salvar")
+    public WebElement buttonSalvar;
+
+    @FindBy(id = "btn-sair")
+    public WebElement buttonSair;
+
+    @FindBy(id = "mensagem")
+    public WebElement spamMensagem;
+
+    public void escrever(WebElement input, String texto) {
+        input.clear();
+        input.sendKeys(texto + Keys.TAB);
+    }
+
+    public void cadastrarProduto(
+        String codigo, 
+        String nome, 
+        Integer quantidade, 
+        Double valor, 
+        String data) {
+
+            escrever(inputCodigo, codigo);
+            escrever(inputNome, nome);
+            escrever(inputQuantidade, quantidade.toString());
+            escrever(inputValor, valor.toString());
+            escrever(inputData, data);
+
+            buttonSalvar.click();
+
+    }
+
 }

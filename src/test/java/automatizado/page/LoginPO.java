@@ -1,6 +1,5 @@
 package automatizado.page;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,11 +21,6 @@ public class LoginPO extends BasePO {
 
     @FindBy(css = "form.form-login>div.alert>span")
     public WebElement spanMensagem;
-
-    public void escrever(WebElement input, String texto) {
-        input.clear();
-        input.sendKeys(texto + Keys.TAB);
-    }
 
     public String obterMensagem() {
         return this.spanMensagem.getText();
