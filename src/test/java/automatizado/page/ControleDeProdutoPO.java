@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import automatizado.builder.ProdutoBuilder;
+
 public class ControleDeProdutoPO extends BasePO {
 
     public ControleDeProdutoPO(WebDriver driver) {
@@ -62,6 +64,18 @@ public class ControleDeProdutoPO extends BasePO {
             escrever(inputQuantidade, quantidade.toString());
             escrever(inputValor, valor.toString());
             escrever(inputData, data);
+
+            buttonSalvar.click();
+
+    }
+
+    public void cadastrarProduto(ProdutoBuilder produtoBuilder) {
+
+            escrever(inputCodigo, produtoBuilder.codigo);
+            escrever(inputNome, produtoBuilder.nome);
+            escrever(inputQuantidade, produtoBuilder.quantidade.toString());
+            escrever(inputValor, produtoBuilder.valor.toString());
+            escrever(inputData, produtoBuilder.data);
 
             buttonSalvar.click();
 
