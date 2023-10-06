@@ -54,7 +54,6 @@ public class ControleDeProdutoTest extends BaseTest{
     public void TC003_naoDeveSerPossivelCadastrarUmProdutoSemPreencherTodosOsCampos() {
         
         controleDeProdutoPage.buttonAdicionar.click();
-        controleDeProdutoPage.buttonAdicionar.click();
 
         // Criar o objeto para adicionar na tela
         ProdutoBuilder produtoBuilder = new ProdutoBuilder(controleDeProdutoPage);
@@ -63,7 +62,7 @@ public class ControleDeProdutoTest extends BaseTest{
         produtoBuilder
         .adicionarCodigo("")
         .builder();
-        assertEquals("Todos os campos são obrigatórios para o cadastro!", controleDeProdutoPage.spamMensagem.getText());
+        assertEquals(mensagem, controleDeProdutoPage.spamMensagem.getText());
 
         produtoBuilder
         .adicionarCodigo("0005")

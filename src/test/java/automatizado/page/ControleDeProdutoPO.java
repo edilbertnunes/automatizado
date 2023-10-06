@@ -70,15 +70,8 @@ public class ControleDeProdutoPO extends BasePO {
     }
 
     public void cadastrarProduto(ProdutoBuilder produtoBuilder) {
-
-            escrever(inputCodigo, produtoBuilder.codigo);
-            escrever(inputNome, produtoBuilder.nome);
-            escrever(inputQuantidade, produtoBuilder.quantidade.toString());
-            escrever(inputValor, produtoBuilder.valor.toString());
-            escrever(inputData, produtoBuilder.data);
-
-            buttonSalvar.click();
-
+        produtoBuilder.builder();
+        buttonSalvar.click();
     }
 
 }

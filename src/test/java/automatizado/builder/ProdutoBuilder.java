@@ -46,8 +46,8 @@ public class ProdutoBuilder {
 
         controleDeProdutoPO.escrever(controleDeProdutoPO.inputCodigo, codigo);
         controleDeProdutoPO.escrever(controleDeProdutoPO.inputNome, nome);
-        controleDeProdutoPO.escrever(controleDeProdutoPO.inputQuantidade, quantidade.toString());
-        controleDeProdutoPO.escrever(controleDeProdutoPO.inputValor, valor.toString());
+        controleDeProdutoPO.escrever(controleDeProdutoPO.inputQuantidade, (quantidade != null) ? quantidade.toString(): "");
+        controleDeProdutoPO.escrever(controleDeProdutoPO.inputValor, (valor != null) ? valor.toString(): "");
         controleDeProdutoPO.escrever(controleDeProdutoPO.inputData, data);
 
         controleDeProdutoPO.buttonSalvar.click();
